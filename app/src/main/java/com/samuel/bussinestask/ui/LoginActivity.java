@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
     Button btnLogin;
-    Button btnForgotPass;
+    TextView labelForgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +41,10 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        btnForgotPass = findViewById(R.id.tvForgotPassword);
+        labelForgotPass = findViewById(R.id.tvForgotPassword);
 
         btnLogin.setOnClickListener(v -> login());
-        btnForgotPass.setOnClickListener(v -> initForgotPassword());
+        labelForgotPass.setOnClickListener(v -> initForgotPassword());
 
     }
 
