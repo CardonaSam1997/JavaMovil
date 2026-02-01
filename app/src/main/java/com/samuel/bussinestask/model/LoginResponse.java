@@ -4,7 +4,12 @@ public class LoginResponse {
 
     private String token;
     private String role;
+    private Integer userId;
 
+
+    public Integer getUserId() {
+        return userId;
+    }
     public String getToken() {
         return token;
     }

@@ -2,8 +2,10 @@ package com.samuel.bussinestask.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
     Button btnLogin;
+    Button btnForgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +41,11 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnForgotPass = findViewById(R.id.tvForgotPassword);
 
         btnLogin.setOnClickListener(v -> login());
+        btnForgotPass.setOnClickListener(v -> initForgotPassword());
+
     }
 
     private void login() {
@@ -59,8 +65,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     SessionManager session = new SessionManager(LoginActivity.this);
                     session.saveSession(
-                            response.body().getToken(),
-                            response.body().getRole()
+                            data.getUserId(),
+                            data.getToken(),
+                            data.getRole()
                     );
 
 
@@ -78,4 +85,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void initForgotPassword() {
+        TextView tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        tvForgotPassword.setOnClickListener(v -> {
+            Log.d("LOGIN", "Click en recuperar contraseña");
+            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
+        });
+    }
+
+
+
+
+
 }
