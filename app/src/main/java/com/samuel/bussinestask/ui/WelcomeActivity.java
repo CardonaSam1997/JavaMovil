@@ -3,6 +3,7 @@ package com.samuel.bussinestask.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.samuel.bussinestask.R;
@@ -15,14 +16,22 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        TextView tvRole = findViewById(R.id.tvRole);
         Button btnLogout = findViewById(R.id.btnLogout);
 
-        btnLogout.setOnClickListener(v -> {
-            SessionManager session = new SessionManager(this);
-            session.logout();
+        SessionManager session = new SessionManager(this);
+        String role = session.getRole();
 
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+        if (role != null) {
+            tvRole.setText("Rol: " + role);
+        } else {
+            tvRole.setText("Rol no definido");
+        }
+
+
+        btnLogout.setOnClickListener(v -> {
+            session.logout();
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
     }

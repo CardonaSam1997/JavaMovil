@@ -53,10 +53,16 @@ public class LoginActivity extends AppCompatActivity {
         service.login(request).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.body() != null) {
+
+                    LoginResponse data = response.body();
 
                     SessionManager session = new SessionManager(LoginActivity.this);
-                    session.saveToken(response.body().getToken());
+                    session.saveSession(
+                            response.body().getToken(),
+                            response.body().getRole()
+                    );
+
 
                     Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                     startActivity(intent);

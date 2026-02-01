@@ -1,11 +1,11 @@
 package com.samuel.bussinestask.model;
 
 public class LoginRequest {
-    private String email;
+    private String identifier;
     private String password;
 
-    public LoginRequest(String email, String password) {
-        this.email = email;
+    public LoginRequest(String identifier, String password) {
+        this.identifier = identifier;
         this.password = password;
     }
 }
