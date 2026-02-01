@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@color/white">
+
+    <TextView
+        android:text="LOREM IPSUM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:text="Seleccione el tipo de cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- PROFESIONAL -->
+    <LinearLayout
+        android:id="@+id/cardProfessional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/bg_card"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:text="Profesional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:text="Servicios profesionales independientes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <!-- EMPRESA -->
+    <LinearLayout
+        android:id="@+id/cardBusiness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/bg_card">
+
+        <TextView
+            android:text="Empresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:text="Registro para empresas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+</LinearLayout>

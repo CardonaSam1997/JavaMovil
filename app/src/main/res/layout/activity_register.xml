@@ -1,0 +1,89 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:text="Bienvenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"
+            android:textColor="#000000"/>
+
+        <!-- Usuario -->
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de usuario"
+            android:background="@drawable/bg_input"
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/bg_input"
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_input"
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Confirmar Password -->
+        <EditText
+            android:id="@+id/etPasswordConfirm"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Repetir contraseña"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_input"
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Botón -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:text="Registrarme"/>
+
+        <!-- Link login -->
+        <TextView
+            android:id="@+id/tvGoLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿Ya tienes cuenta? Inicia sesión"
+            android:gravity="center"
+            android:textColor="#1976D2"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

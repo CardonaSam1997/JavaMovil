@@ -1,6 +1,7 @@
 package com.samuel.bussinestask.ui;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         etEmail = findViewById(R.id.etEmailRecovery);
+        Button btnEmailRecovery = findViewById(R.id.btnSendRecovery);
+
+        btnEmailRecovery.setOnClickListener(v -> forgotPassword());
+
     }
 
     public void forgotPassword() {
