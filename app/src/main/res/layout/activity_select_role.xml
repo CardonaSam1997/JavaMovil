@@ -1,48 +1,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
+    android:background="@color/white"
     android:gravity="center"
-    android:background="@color/white">
+    android:orientation="vertical"
+    android:padding="24dp">
 
     <TextView
-        android:text="LOREM IPSUM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Seleccion el tipo de cuenta"
+        android:textColor="@color/black"
         android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:text="Seleccione el tipo de cuenta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginBottom="24dp"/>
+        android:textStyle="bold" />
 
     <!-- PROFESIONAL -->
     <LinearLayout
         android:id="@+id/cardProfessional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_card"
-        android:layout_marginBottom="16dp">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <TextView
-            android:text="Profesional"
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_person" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:text="Servicios profesionales independientes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profesional"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Servicios profesionales independientes"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- EMPRESA -->
@@ -50,22 +59,37 @@
         android:id="@+id/cardBusiness"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@drawable/bg_card">
+        android:background="@drawable/bg_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <TextView
-            android:text="Empresa"
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_bussines" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:text="Registro para empresas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Empresa"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registro para empresas"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

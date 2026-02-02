@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
     Button btnLogin;
-    TextView labelForgotPass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        labelForgotPass = findViewById(R.id.tvForgotPassword);
+        TextView labelForgotPass = findViewById(R.id.tvForgotPassword);
+        TextView labelRegister = findViewById(R.id.tvRegister);
 
         btnLogin.setOnClickListener(v -> login());
         labelForgotPass.setOnClickListener(v -> initForgotPassword());
-
+        labelRegister.setOnClickListener(v -> initRegister());
     }
 
     private void login() {
@@ -89,8 +90,15 @@ public class LoginActivity extends AppCompatActivity {
     private void initForgotPassword() {
         TextView tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvForgotPassword.setOnClickListener(v -> {
-            Log.d("LOGIN", "Click en recuperar contraseña");
             Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void initRegister() {
+        TextView tvRegister = findViewById(R.id.tvRegister);
+        tvRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
     }

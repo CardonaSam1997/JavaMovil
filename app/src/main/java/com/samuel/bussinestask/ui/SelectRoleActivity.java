@@ -23,7 +23,7 @@ public class SelectRoleActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.cardBusiness).setOnClickListener(v -> {
-            session.saveRole("BUSINESS");
+            session.saveRole("COMPANY");
             startActivity(new Intent(this, RegisterBusinessActivity.class));
         });
     }

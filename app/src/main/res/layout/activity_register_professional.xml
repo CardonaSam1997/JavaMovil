@@ -1,0 +1,118 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:text="Registro Profesional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- DOCUMENTO -->
+        <EditText
+            android:id="@+id/etDocument"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cédula"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellido"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <Spinner
+            android:id="@+id/spGender"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dirección"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Celular"
+            android:inputType="phone"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <EditText
+            android:id="@+id/etAcademic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Formación académica"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <Spinner
+            android:id="@+id/spServiceType"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etBirthDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fecha de nacimiento"
+            android:focusable="false"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <EditText
+            android:id="@+id/etExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Años de experiencia"
+            android:inputType="number"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_input"/>
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:minLines="3"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_input"/>
+
+        <Button
+            android:id="@+id/btnRegisterProfessional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarme"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -60,6 +60,13 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        if (pass.length() < 8) {
+            etPassword.setError("La contraseña debe tener al menos 8 caracteres");
+            etPassword.requestFocus();
+            return;
+        }
+
         registrarUsuario();
 
     }
@@ -70,43 +77,42 @@ public class RegisterActivity extends AppCompatActivity {
                 etUsername.getText().toString(),
                 etEmail.getText().toString(),
                 etPassword.getText().toString(),
-                "USER"
+                "ADMIN"
         );
 
         UserApi api = ApiClient.getClient().create(UserApi.class);
 
         api.register(dto).enqueue(new Callback<UserResponse>() {
+
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
 
                     UserResponse user = response.body();
-                    Integer userId = user.getId(); // ✅ AQUÍ obtienes el ID
-
-                    Toast.makeText(RegisterActivity.this,
-                            "Usuario creado. ID: " + userId,
-                            Toast.LENGTH_SHORT).show();
-
-                    continuarRegistro(userId);
+                    continuarRegistro(user.getId());
 
                 } else {
-                    Toast.makeText(RegisterActivity.this,
-                            "Error al registrar",
-                            Toast.LENGTH_SHORT).show();
+                    try {
+                        String errorBody = response.errorBody().string();
+
+                        if (errorBody.contains("email")) {
+                            etEmail.setError("El correo ya está registrado");
+                        } else if (errorBody.contains("usuario")) {
+                            etUsername.setError("El nombre de usuario ya existe");
+                        } else {
+                            Toast.makeText(RegisterActivity.this,
+                                    "Error al registrar",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                    } catch (Exception e) {
+                        Toast.makeText(RegisterActivity.this,
+                                "Error inesperado",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
-
-            private void continuarRegistro(Integer userId) {
-                SessionManager session = new SessionManager(this);
-                session.saveUserId(userId);
-
-
-                Intent intent = new Intent(this, SelectRoleActivity.class);
-                intent.putExtra("USER_ID", userId);
-                startActivity(intent);
-                finish();
-            }
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
@@ -115,6 +121,17 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void continuarRegistro(Integer userId) {
+        SessionManager session = new SessionManager(this);
+        session.saveUserId(userId);
+
+
+        Intent intent = new Intent(this, SelectRoleActivity.class);
+        intent.putExtra("USER_ID", userId);
+        startActivity(intent);
+        finish();
     }
 
 }

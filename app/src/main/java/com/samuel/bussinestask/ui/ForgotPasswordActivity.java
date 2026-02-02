@@ -1,8 +1,12 @@
 package com.samuel.bussinestask.ui;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.samuel.bussinestask.R;
@@ -16,6 +20,9 @@ import retrofit2.Response;
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     private EditText etEmail;
+    private TextView tvConfirmation;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         Button btnEmailRecovery = findViewById(R.id.btnSendRecovery);
 
         btnEmailRecovery.setOnClickListener(v -> forgotPassword());
+
+        tvConfirmation = findViewById(R.id.tvConfirmation);
+
 
     }
 
@@ -39,7 +49,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         }
 
         AuthService authService = ApiClient
-                .getClient()
+                .getClientScalars()
                 .create(AuthService.class);
 
         ForgotPasswordRequest request =
@@ -49,16 +59,24 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 .enqueue(new Callback<String>() {
 
                     @Override
-                    public void onResponse(Call<String> call,
-                                           Response<String> response) {
-
+                    public void onResponse(Call<String> call, Response<String> response) {
                         if (response.isSuccessful()) {
+                            tvConfirmation.setVisibility(View.VISIBLE);
+                            etEmail.setEnabled(false);
+
                             Toast.makeText(
                                     ForgotPasswordActivity.this,
-                                    response.body(),
+                                    "Si el correo existe, se enviará un enlace de recuperación",
                                     Toast.LENGTH_LONG
                             ).show();
-                        } else {
+
+                            new Handler(Looper.getMainLooper()).postDelayed(
+                                    ForgotPasswordActivity.this::finish,
+                                    5000
+                            );
+
+                        }
+                        else {
                             Toast.makeText(
                                     ForgotPasswordActivity.this,
                                     "Error al procesar la solicitud",
